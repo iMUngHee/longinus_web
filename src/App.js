@@ -1,27 +1,36 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Route, Routes } from "react-router";
-import { ThemeProvider } from "styled-components";
 
+// GlobalStyle
+import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/Global";
 import GlobalFonts from "./styles/Font";
-//eslint-disable-next-line
 import { lightTheme, darkTheme } from "./styles/Theme";
+import { useThemeContext } from "./contexts/themeContext";
 
-import DashBoard from "./pages/DashBoard";
+// Components
+import Sidebar from './components/Sidebar/Sidebar';
+import Header from './components/Header/Header';
+
+const Container = styled.div`
+
+`;
 
 function App() {
+  const { theme } = useThemeContext();
   return (
-    <ThemeProvider theme={lightTheme}>
-      <GlobalStyles />
-      <GlobalFonts />
+    <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<DashBoard />} />
-          <Route path="/home" element={<DashBoard />} />
-        </Routes>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          <GlobalFonts />
+          <Container>
+            <Sidebar />
+            <Header />
+          </Container>
+        </ThemeProvider>
       </BrowserRouter>
-    </ThemeProvider>
+    </>
   );
 }
 

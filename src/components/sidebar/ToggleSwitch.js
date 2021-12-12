@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useThemeContext } from '../../contexts/themeContext';
 
 const Switch = styled.div`
   display: flex;
@@ -65,9 +66,10 @@ const Switch = styled.div`
 `;
 
 const ToggleSwitch = () => {
+  const {toggleTheme} = useThemeContext();
   return (
     <Switch>
-      <input className="switch_input" type="checkbox" id="switchCheckBox1" onClick={() => {}} />
+      <input className="switch_input" type="checkbox" id="switchCheckBox1" onClick={toggleTheme} />
       <label aria-hidden="true" className='switch_label' htmlFor="switchCheckBox1">On</label>
       <div aria-hidden="true" className='switch_marker'></div>
     </Switch>

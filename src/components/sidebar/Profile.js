@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../../img/profile.jpg';
+import Image from '../../assets/img/profile.jpg';
 
 const Container = styled.div`
   margin-top: 5rem;
