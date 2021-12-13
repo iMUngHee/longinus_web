@@ -57,18 +57,18 @@ const DropDown = styled(Link)`
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
-  
 `;
 
-const MenuItem = ({ item, active }) => {
+const MenuItem = ({ item }) => {
   const [subNav, setSubNav] = useState(false);
-  const showSubNav = () => setSubNav(!subNav);
+  const [active, setActive] = useState(false);
+  const showSubNav = () => {
+    setSubNav(!subNav);
+    setActive(!active);
+  };
   return (
     <>
-      <Container
-        active={active}
-        onClick={item.subNav && showSubNav}
-      >
+      <Container active={active} onClick={item.subNav && showSubNav}>
         <Icon>{item.icon}</Icon>
         <Title active={active}>{item.title}</Title>
         <DropDownIcon>
@@ -79,18 +79,15 @@ const MenuItem = ({ item, active }) => {
             : null}
         </DropDownIcon>
       </Container>
-      {subNav && item.subNav.map((item, index) => {
-        return(
-          <DropDown to={item.path} key={index}>
-            <Icon>
-              {item.icon}
-            </Icon>
-            <Title>
-              {item.title}
-            </Title>
-          </DropDown>
-        )
-      })}
+      {subNav &&
+        item.subNav.map((item, index) => {
+          return (
+            <DropDown to={item.path} key={index}>
+              <Icon>{item.icon}</Icon>
+              <Title>{item.title}</Title>
+            </DropDown>
+          );
+        })}
     </>
   );
 };

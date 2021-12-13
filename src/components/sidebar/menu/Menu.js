@@ -12,7 +12,7 @@ const Menu = () => {
   return (
     <Container>
       {MenuData.map((item, index) => {
-        return <MenuItem item={item} key={index}  />;
+        return <MenuItem item={item} key={index} />;
       })}
     </Container>
   );
