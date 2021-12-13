@@ -18,22 +18,31 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  li {
-    transition: all 1s 0.2s;
+  li, a {
+    transition: all 0.6s 0.1s;
   }
   &.active li:nth-child(2) {
     transform: translateY(3rem);
+    a:hover {
+      color: #fdb85d;
+    }
   }
   &.active li:nth-child(3) {
     transform: translateY(5rem);
+    :hover {
+      color: #ea6ff5;
+    }
   }
   &.active li:nth-child(4) {
     transform: translateY(7rem);
+    :hover {
+      color: #34ff67;
+    }
   }
 `;
 
 const ProfileImg = styled.img`
-  box-shadow: 0 0 4px rgba(0,0,0,0.15);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   height: 3rem;
   width: 3rem;
   border-radius: 70%;
@@ -49,7 +58,16 @@ const NavIcon = styled.li`
   list-style: none;
   position: absolute;
   z-index: 10;
-`
+  cursor: pointer;
+  a:link {
+    color: ${({ theme }) => theme.colorGray};
+    text-decoration: none;
+  }
+  a:visited {
+    color: ${({ theme }) => theme.colorGray};
+    text-decoration: none;
+  }
+`;
 
 const MessageIcon = styled.span`
   color: ${({ theme }) => theme.colorGray};
@@ -66,17 +84,19 @@ const Nav = () => {
       <MessageIcon>
         <MdOutlineMail />
       </MessageIcon>
-      <Menu className={active ? 'active' : ''}>
-          <ProfileImg src={Image} onClick={onClick}/>
-          <NavIcon>
+      <Menu className={active ? "active" : ""}>
+        <ProfileImg src={Image} onClick={onClick} />
+        <NavIcon>
+          <a href="https://github.com/iMUngHee" target="_blank" rel="noopener noreferrer">
             <GrGithub />
-          </NavIcon>
-          <NavIcon>
-            <GrInstagram />
-          </NavIcon>
-          <NavIcon>
-            <GrLinkedinOption />
-          </NavIcon>
+          </a>
+        </NavIcon>
+        <NavIcon>
+          <GrInstagram />
+        </NavIcon>
+        <NavIcon>
+          <GrLinkedinOption />
+        </NavIcon>
       </Menu>
     </Container>
   );
