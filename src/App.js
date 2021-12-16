@@ -9,6 +9,7 @@ import { lightTheme, darkTheme } from "./styles/Theme";
 import { useThemeContext } from "./contexts/themeContext";
 
 // Components
+import Main from "./components/Main/Main";
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 
@@ -25,6 +26,7 @@ function App() {
           <GlobalStyles />
           <GlobalFonts />
           <Container>
+            <Main />
             <Sidebar />
             <Header />
           </Container>

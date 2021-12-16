@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MenuItem from "./MenuItem";
 import { MenuData } from "./MenuData";
 
-const Container = styled.div`
+const Container = styled.b`
   margin-top: 2rem;
   width: 100%;
 `;

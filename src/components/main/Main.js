@@ -3,16 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 // Pages
-import AboutPage from '../../pages/Home/AboutPage';
-import SkillsPage from '../../pages/Home/SkillsPage';
-import ProjectPage from '../../pages/Portfolio/ProjectPage';
-import AlgorithmPage from '../../pages/Post/AlgorithmPage';
-import ReactPage from '../../pages/Post/ReactPage';
-import BookPage from '../../pages/Review/BookPage';
-import MoviePage from '../../pages/Review/MoviePage';
+import HomePage from '../../pages/HomePage';
+import ProjectPage from '../../pages/ProjectPage';
+import PostPage from '../../pages/PostPage';
+import ReviewPage from '../../pages/ReviewPage';
 
 const Container = styled.div`
-
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 16rem);
+  margin-left: 16rem;
 `;
 
 const Main = () => {
@@ -20,22 +20,15 @@ const Main = () => {
     <Container>
       {/* Rendering Pages */}
       <Routes>
-        <Route path='/' element={<AboutPage />} />
+        <Route path='/' element={<HomePage />} />
         {/* Home */}
-        <Route path='/home' element={<AboutPage />} />
-        <Route path='/home/about' element={<AboutPage />} />
-        <Route path='/home/about' element={<SkillsPage />} />
-        {/* Portfolio */}
-        <Route path='/portfolio' element={<ProjectPage />} />
-        <Route path='/portfolio/project' element={<ProjectPage />} />
+        <Route path='/home' element={<HomePage />} />
+        {/* Project */}
+        <Route path='/project' element={<ProjectPage />} />
         {/* Post */}
-        <Route path='/Post' element={<AlgorithmPage />} />
-        <Route path='/Post/algorithm' element={<AlgorithmPage />} />
-        <Route path='/Post/react' element={<ReactPage />} />
+        <Route path='/Post' element={<PostPage />} />
         {/* Review */}
-        <Route path='/review' element={<BookPage />} />
-        <Route path='/review/book' element={<BookPage />} />
-        <Route path='/review/movie' element={<MoviePage />} />
+        <Route path='/review' element={<ReviewPage />} />
       </Routes>
     </Container>
   );
