@@ -24,6 +24,7 @@ const Title = styled.h2`
   margin-top: 0;
   a {
     color: ${({theme}) => theme.opposite};
+    line-height: 1.2;
     word-wrap: break-word;
     position: relative;
     border-bottom: none;
@@ -38,13 +39,23 @@ const Title = styled.h2`
       left: 0;
       background-color: ${({theme}) => theme.opposite};
       visibility: hidden;
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      -o-transform: scaleX(0);
       transform: scaleX(0);
-      transition-timing-function: ease-in-out;
-      transition-duration: 0.2s;
+      transition: 0.2s ease-in-out;
       transition-delay: 0;
+    }
+    &:hover {
+      outline: 0;
     }
     &:hover::before {
       visibility: visible;
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      -o-transform: scaleX(1);
       transform: scaleX(1);
     }
   }

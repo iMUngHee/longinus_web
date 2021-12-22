@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import ProfileContainer from "../../containers/Home/ProfileContainer";
 import Menu from "./menu/Menu";
-import Profile from "./Profile";
 import ToggleSwitch from "./ToggleSwitch";
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
 const sidebar = () => {
   return (
     <Container>
-      <Profile />
+      <ProfileContainer />
       <Menu />
       <ToggleSwitch />
     </Container>
